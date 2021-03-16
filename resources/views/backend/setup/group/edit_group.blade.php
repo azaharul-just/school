@@ -12,13 +12,13 @@
     <!-- Basic Forms -->
      <div class="box">
        <div class="box-header with-border">
-         <h4 class="box-title">Update Student Class </h4> 
+         <h4 class="box-title">Update Group Class </h4> 
        </div>
        <!-- /.box-header -->
        <div class="box-body">
          <div class="row">
            <div class="col">
-               <form method="POST" action="{{route('student.class.update',$editData->id)}}"> 
+               <form method="POST" action="{{route('student.group.update',$editData->id)}}"> 
                 @csrf 
                     <div class="row">
                         <div class="col-md-12">
@@ -34,7 +34,7 @@
                         </div>  
                     </div>  
                    <div class="text-xs-right"> 
-                       <input type="submit" class="btn btn-rounded btn-info" value="Update Class">
+                       <input type="submit" class="btn btn-rounded btn-info" value="Update Group">
                    </div>
                </form>
 
