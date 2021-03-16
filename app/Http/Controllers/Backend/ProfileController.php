@@ -83,7 +83,7 @@ class ProfileController extends Controller
             'alert-type'=>'success'
             );
 
-            return Redirect()->route('admin.logout')->with($notification);
+            return Redirect()->route('login')->with($notification);
 
 
         }else{
