@@ -137,6 +137,10 @@
     toastr.warning("{{Session::get('message')}}");
     break;
 
+    case 'danger':
+    toastr.error("{{Session::get('message')}}");
+    break;
+
     case 'error':
     toastr.error("{{Session::get('message')}}");
     break;
