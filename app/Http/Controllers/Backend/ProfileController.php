@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -48,5 +50,52 @@ class ProfileController extends Controller
             'alert-type'=>'success'
         ); 
         return Redirect()->route('profile.view')->with($notification);  
+    }
+
+    public function PasswordView(){
+        $id = Auth::user()->id;
+        $editData = User::find($id); 
+
+        return view('backend.user.edit_password',compact('editData'));
+
+    }
+
+    public function PasswordUpdate(Request $request){ 
+        $validatedData = $request->validate([ 
+            'oldpassword' => 'required',  
+            'password' => 'required|confirmed',
+        ]);  
+
+        $hashedPassword = User::find(Auth::user()->id)->password; 
+ 
+        $password = $request->oldpassword;
+        
+        if (Hash::check($password,$hashedPassword)) {
+            $user = User::find(Auth::user()->id);
+            $user->password = Hash::make($request->password);
+            $user->save();
+            Auth::logout();
+
+            //return redirect()->route('login')->with('success','Password Changed Successfully');
+
+             $notification = array(
+            'message'=>'Password Update Successfully',
+            'alert-type'=>'success'
+            );
+
+            return Redirect()->route('admin.logout')->with($notification);
+
+
+        }else{
+
+             $notification = array(
+            'message'=>'Current Password Invalid',
+            'alert-type'=>'warning'
+            );
+
+            return Redirect()->back()->with($notification);
+            //return redirect()->back()->with('success','Current Password Invalid'); 
+        }
+
     }
 }
