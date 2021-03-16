@@ -7,6 +7,11 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
+use App\Http\Controllers\Backend\Setup\StudentShiftController;
+use App\Http\Controllers\Backend\Setup\FeeCategoryController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +88,23 @@ Route::prefix('setups')->group(function(){
     Route::post('student/group/update/{id}',[StudentGroupController::class, 'StudentGroupUpdate'])->name('student.group.update'); 
     Route::get('student/group/delete/{id}',[StudentGroupController::class, 'StudentGroupDelete'])->name('student.group.delete'); 
 
+    //Student Shift Routes
+    Route::get('student/shift/view',[StudentShiftController::class, 'ViewShift'])->name('student.shift.view'); 
+    Route::get('student/shift/add',[StudentShiftController::class, 'StudentShiftAdd'])->name('student.shift.add'); 
+    Route::post('student/shift/store',[StudentShiftController::class, 'StudentShiftStore'])->name('student.shift.store');
+
+    Route::get('student/shift/edit/{id}',[StudentShiftController::class, 'StudentShiftEdit'])->name('student.shift.edit'); 
+    Route::post('student/shift/update/{id}',[StudentShiftController::class, 'StudentShiftUpdate'])->name('student.shift.update'); 
+    Route::get('student/shift/delete/{id}',[StudentShiftController::class, 'StudentShiftDelete'])->name('student.shift.delete'); 
+
+
+     //Student Fee Category Routes
+     Route::get('fee/category/view',[FeeCategoryController::class, 'ViewFeeCat'])->name('fee.category.view'); 
+     Route::get('fee/category/add',[FeeCategoryController::class, 'Fee_Cat_Add'])->name('fee.category.add');
+     Route::post('fee/category/store',[FeeCategoryController::class, 'Fee_Cat_Store'])->name('fee.category.store');
+     Route::get('fee/category/edit/{id}',[FeeCategoryController::class, 'Fee_Cat_Edit'])->name('fee.category.edit'); 
+     Route::post('fee/category/update/{id}',[FeeCategoryController::class, 'Fee_Cat_Update'])->name('fee.category.update'); 
+     Route::get('fee/category/delete/{id}',[FeeCategoryController::class, 'Fee_Cat_Delete'])->name('fee.category.delete'); 
 
 });
 
