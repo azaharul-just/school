@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\FeeCategoryController;
+use App\Http\Controllers\Backend\Setup\FeeAmountController;
 
 
 
@@ -98,14 +99,20 @@ Route::prefix('setups')->group(function(){
     Route::get('student/shift/delete/{id}',[StudentShiftController::class, 'StudentShiftDelete'])->name('student.shift.delete'); 
 
 
-     //Student Fee Category Routes
-     Route::get('fee/category/view',[FeeCategoryController::class, 'ViewFeeCat'])->name('fee.category.view'); 
-     Route::get('fee/category/add',[FeeCategoryController::class, 'Fee_Cat_Add'])->name('fee.category.add');
-     Route::post('fee/category/store',[FeeCategoryController::class, 'Fee_Cat_Store'])->name('fee.category.store');
-     Route::get('fee/category/edit/{id}',[FeeCategoryController::class, 'Fee_Cat_Edit'])->name('fee.category.edit'); 
-     Route::post('fee/category/update/{id}',[FeeCategoryController::class, 'Fee_Cat_Update'])->name('fee.category.update'); 
-     Route::get('fee/category/delete/{id}',[FeeCategoryController::class, 'Fee_Cat_Delete'])->name('fee.category.delete'); 
+    //Student Fee Category Routes
+    Route::get('fee/category/view',[FeeCategoryController::class, 'ViewFeeCat'])->name('fee.category.view'); 
+    Route::get('fee/category/add',[FeeCategoryController::class, 'Fee_Cat_Add'])->name('fee.category.add');
+    Route::post('fee/category/store',[FeeCategoryController::class, 'Fee_Cat_Store'])->name('fee.category.store');
+    Route::get('fee/category/edit/{id}',[FeeCategoryController::class, 'Fee_Cat_Edit'])->name('fee.category.edit'); 
+    Route::post('fee/category/update/{id}',[FeeCategoryController::class, 'Fee_Cat_Update'])->name('fee.category.update'); 
+    Route::get('fee/category/delete/{id}',[FeeCategoryController::class, 'Fee_Cat_Delete'])->name('fee.category.delete'); 
 
+    //Student Fee Category Amounts Routes
+    Route::get('fee/amount/view',[FeeAmountController::class, 'ViewFeeAmount'])->name('fee.amount.view'); 
+    
+    Route::get('fee/amount/add',[FeeAmountController::class, 'AddFeeAmount'])->name('fee.amount.add'); 
+    Route::post('fee/amount/store',[FeeAmountController::class, 'StoreFeeAmount'])->name('store.fee.amount'); 
+   
 });
 
 
