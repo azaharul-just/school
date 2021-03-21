@@ -11,7 +11,7 @@
 		
         <div class="user-profile">
 			<div class="ulogo">
-				 <a href="index.html">
+				 <a href="{{route('dashboard')}}">
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
 						  <img src="{{asset('backend/images/logo-dark.png')}}" alt="">
@@ -74,6 +74,7 @@
             <li class="{{($route == 'fee.amount.view')?'active':''}}"><a href="{{route('fee.amount.view')}}"><i class="ti-more"></i>Fee Category Amount</a></li>
             <li class="{{($route == 'exam.type.view')?'active':''}}"><a href="{{route('exam.type.view')}}"><i class="ti-more"></i>Exam Type</a></li>
             <li class="{{($route == 'student.subject.view')?'active':''}}"><a href="{{route('student.subject.view')}}"><i class="ti-more"></i>Student Subjects</a></li>
+            <li class="{{($route == 'assign.subject.view')?'active':''}}"><a href="{{route('assign.subject.view')}}"><i class="ti-more"></i>Assign Subjects</a></li>
             
           </ul>
         </li> 
