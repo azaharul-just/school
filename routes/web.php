@@ -13,7 +13,9 @@ use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\StudentSubjectController; 
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
+use App\Http\Controllers\Backend\Setup\DesignationController;
 
+use App\Http\Controllers\Backend\Student\StudentRegController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +63,6 @@ Route::prefix('profile')->group(function(){
 });
 
 // Setup Management 
-
 Route::prefix('setups')->group(function(){
 
     //Student Class Routes
@@ -141,7 +142,26 @@ Route::prefix('setups')->group(function(){
     Route::post('update/assign/subject/{assign}',[AssignSubjectController::class, 'UpdateAssignSubject'])->name('update.assign.subject'); 
     Route::get('assign/subject/details/{assign}',[AssignSubjectController::class, 'DetailsAssignSubject'])->name('assign.subject.details');
 
+     //Designation Routes
+     Route::get('designation/view',[DesignationController::class, 'ViewDesignation'])->name('designation.view'); 
+     Route::get('designation/add',[DesignationController::class, 'DesignationAdd'])->name('designation.add'); 
+     Route::post('designation/store',[DesignationController::class, 'DesignationStore'])->name('designation.store');
+     Route::get('designation/edit/{id}',[DesignationController::class, 'DesignationEdit'])->name('designation.edit'); 
+     Route::post('designation/update/{id}',[DesignationController::class, 'DesignationUpdate'])->name('designation.update'); 
+     Route::get('designation/delete/{id}',[DesignationController::class, 'DesignationDelete'])->name('designation.delete'); 
 
+    
+});
+
+
+// Student Management - Routes 
+Route::prefix('students')->group(function(){
+    Route::get('reg/view',[StudentRegController::class, 'StudentRegView'])->name('student.registration.view');
+    Route::get('/edit',[ProfileController::class, 'ProfileEdit'])->name('profile.edit');
+    Route::post('/store/{id}',[ProfileController::class, 'ProfileStore'])->name('profile.store');
+    Route::get('/password/view',[ProfileController::class, 'PasswordView'])->name('password.view');
+    Route::post('/password/update/',[ProfileController::class, 'PasswordUpdate'])->name('profile.password.update');
+     
 });
 
 
