@@ -157,10 +157,7 @@ Route::prefix('setups')->group(function(){
 // Student Management - Routes 
 Route::prefix('students')->group(function(){
     Route::get('reg/view',[StudentRegController::class, 'StudentRegView'])->name('student.registration.view');
-    Route::get('/edit',[ProfileController::class, 'ProfileEdit'])->name('profile.edit');
-    Route::post('/store/{id}',[ProfileController::class, 'ProfileStore'])->name('profile.store');
-    Route::get('/password/view',[ProfileController::class, 'PasswordView'])->name('password.view');
-    Route::post('/password/update/',[ProfileController::class, 'PasswordUpdate'])->name('profile.password.update');
+    
      
 });
 

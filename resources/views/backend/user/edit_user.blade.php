@@ -20,15 +20,15 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <h5>Select UserType<span class="text-danger">*</span></h5>
+                                <h5>Select role<span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <select name="usertype" id="select" class="form-control" aria-invalid="false">
-                                        <option value="" selected disabled>Select Usertype</option>
-                                        <option value="Admin" {{$editData->usertype == "Admin" ? "selected":" "}}>Admin</option>
-                                        <option value="User" {{$editData->usertype == "User" ? "selected":" "}}>User</option> 
+                                    <select name="role" id="role" class="form-control" aria-invalid="false">
+                                        <option value="" selected disabled>Select Role</option>
+                                        <option value="Admin" {{$editData->role == "Admin" ? "selected":" "}}>Admin</option>
+                                        <option value="Operator" {{$editData->role == "Operator" ? "selected":" "}}>Operator</option> 
                                     </select>
                                 </div>
-                                @error('usertype')
+                                @error('role')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>

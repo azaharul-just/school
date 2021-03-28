@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class StudentRegController extends Controller
 {
-    //
+    public function StudentRegView(){
+        echo "ok";
+    }
 }
