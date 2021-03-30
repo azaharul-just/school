@@ -179,7 +179,7 @@
                                     <div class="form-group">
                                         <h5>Shift <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <select name="class_id" id="class_id" class="form-control" required aria-invalid="false">
+                                            <select name="shift_id" id="shift_id" class="form-control" required aria-invalid="false">
                                                 <option value="" selected disabled>Select Class</option>
                                                 @foreach ($shifts as $shift)
                                                 <option value="{{$shift->id}}">{{$shift->name}}</option>

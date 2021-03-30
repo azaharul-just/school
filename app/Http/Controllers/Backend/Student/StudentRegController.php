@@ -20,7 +20,26 @@ use DB;
 class StudentRegController extends Controller
 {
     public function StudentRegView(){
-        $data['allData'] = AssignStudent::all();
+        $data['years'] = StudentYear::all();
+        $data['classes'] = StudentClass::all();
+
+        $data['year_id'] = StudentYear::orderBy('id','desc')->first()->id;
+        $data['class_id'] = StudentClass::orderBy('id','desc')->first()->id;
+        //dd($data['year_id']);
+
+        $data['allData'] = AssignStudent::where('year_id',$data['year_id'])->where('class_id',$data['class_id'])->get();
+        return view('backend.student.student_reg.student_view',$data);
+    }
+
+    // search year and classes wise
+    public function StudentClassYearWise(Request $request){
+        $data['years'] = StudentYear::all();
+        $data['classes'] = StudentClass::all();
+
+        $data['year_id'] = $request->year_id;
+        $data['class_id'] = $request->class_id;
+        
+        $data['allData'] = AssignStudent::where('year_id',$request->year_id)->where('class_id',$request->class_id)->get();
         return view('backend.student.student_reg.student_view',$data);
     }
 
