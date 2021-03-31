@@ -14,6 +14,7 @@ use App\Models\StudentGroup;
 use App\Models\StudentShift;
 
 use DB;
+use PDF;
 
 
 
@@ -249,6 +250,22 @@ class StudentRegController extends Controller
         return Redirect()->route('student.registration.view')->with($notification);
 
     } //StudentRegUpdatePromotion Method End
+
+
+    //For PDF, i have use "Barryvdh" instead of "niklasravnsborg" for laravel 8 due to supporting
+    public function StudentRegDetails($student_id){
+        $data['details'] = AssignStudent::with('student','discount')->where('student_id',$student_id)->first();
+        //dd($data['details']['student']['name']);
+        //return view('backend.student.student_reg.student_reg_details', $data);
+
+        $pdf = PDF::loadView('backend.student.student_reg.student_reg_details', $data);
+        //$pdf->SetProtection(['copy', 'print'], '', 'pass'); 
+        return $pdf->stream($data['details']['student']['name'].'.pdf');
+
+       // $pdf = PDF::loadView('myPDF', $data);
+      // return $pdf->download('itsolutionstuff.pdf');
+
+    }
 
 
 }
