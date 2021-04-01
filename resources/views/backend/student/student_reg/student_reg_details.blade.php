@@ -44,7 +44,7 @@
     <tr>
         <td>2</td>
         <td>Roll</td>
-        <td>{{$details['student']['roll']}}</td>
+        <td>{{$details->roll}}</td>
     </tr> 
     <tr>
         <td>3</td>
@@ -109,7 +109,8 @@
     </tr> 
   </table> 
 <br>
-  <a style="font-size:10px; float: right">Print Date: {{date('d-M-Y H:i:s')}} @ by Azaharl </a>
+  <a style="font-size:10px; float: right">Thank You <b>{{$details['student']['name']}}</b> </a><br>
+  <a style="font-size:10px; float: right">Print Date: {{date('d-M-Y H:i:s')}} @ by Azaharul </a>
    
  
 </body>
