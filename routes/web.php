@@ -37,6 +37,9 @@ use App\Http\Controllers\Backend\Account\AccountSalaryController;
 use App\Http\Controllers\Backend\Account\OtherCostController;
 
 use App\Http\Controllers\Backend\Report\ProfiteController;
+use App\Http\Controllers\Backend\Report\MarkSheetController;
+use App\Http\Controllers\Backend\Report\AttenReportController;
+use App\Http\Controllers\Backend\Report\ResultReportController;
 
 
 
