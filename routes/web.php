@@ -34,6 +34,8 @@ use App\Http\Controllers\Backend\DefaultController;
 
 use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\Account\AccountSalaryController;
+use App\Http\Controllers\Backend\Account\OtherCostController;
+
 
 
 
